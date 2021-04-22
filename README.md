@@ -1,2 +1,2 @@
-# rudevich-ios-edu
-rudevich-ios-edu
+# rudevich/ios-edu
+rudevich/ios-edu
