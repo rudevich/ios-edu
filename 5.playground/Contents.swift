@@ -25,7 +25,7 @@ class SomeRefType {
         print("direct dispatch class")
     }
 }
-extension SomeRefType:ProtocolExtended {
+extension SomeRefType {
     func hiDirectExtended() {
         print("direct dispatch class extended")
     }
