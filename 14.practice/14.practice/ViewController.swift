@@ -73,6 +73,10 @@ extension ViewController: UITableViewDataSource {
 
 }
 
+protocol CellDelegate {
+    func didTapOnButton(index: Int) -> Void
+}
+
 extension ViewController: CellDelegate {
     func didTapOnButton(index: Int) {
         let v = supportViewController.view as! UIButton

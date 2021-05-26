@@ -7,10 +7,6 @@
 
 import UIKit
 
-protocol CellDelegate {
-    func didTapOnButton(index: Int) -> Void
-}
-
 class TableViewCell: UITableViewCell {
     var delegate: CellDelegate?
     
