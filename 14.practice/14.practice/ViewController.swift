@@ -11,14 +11,22 @@ class ViewController: UIViewController {
     
     let tableView = UITableView()
     
-    var cities = ["Link", "Zelda", "Ganondorf", "Midna", "Moscow", "Saint-Petersburg", "Montana", "Iowa", "Jamaica", "Sacramento", "Ankara", "Istanbul", "Kyiv", "Minneapolis"]
+    var cities = ["Link", """
+    let ret = UIViewController()
+    let button = UIButton()
+    button.backgroundColor = .darkGray
+    button.center = ret.view.center
+    button.addTarget(self, action: #selector(backButton), for: .touchUpInside)
+    ret.view = button
+    return ret
+    """, "Ganondorf", "Midna", "Moscow", "Saint-Petersburg", "Montana", "Iowa", "Jamaica", "Sacramento", "Ankara", "Istanbul", "Kyiv", "Minneapolis"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.addSubview(tableView)
         
-        tableView.allowsSelection = false// true
+        tableView.allowsSelection = true// true
         
         tableView.backgroundColor = .lightGray
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -50,7 +58,12 @@ class ViewController: UIViewController {
     }
     
     @objc func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(84)
+        var height = TableViewCell.heightFor(for: cities[indexPath.row], width: tableView.frame.width - tableView.frame.width * 100 / 20)
+        if (height < 50) {
+            height = 84
+        }
+        return height
+        //        return CGFloat(Int.random(in: 50...90))
     }
 }
 
@@ -67,9 +80,16 @@ extension ViewController: UITableViewDataSource {
         cell.backgroundColor = .clear
         cell.delegate = self
         cell.index = indexPath.row
+        cell.textLabel?.numberOfLines = 0;
+        cell.textLabel?.lineBreakMode = .byWordWrapping;
+        cell.textLabel?.baselineAdjustment = .none
+        cell.textLabel?.preferredMaxLayoutWidth = 100
+//        cell.textLabel?.font = UIFont.
         
         return cell
     }
+    
+    
 
 }
 
@@ -86,6 +106,11 @@ extension ViewController: CellDelegate {
 }
 
 extension ViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(cities[indexPath.row])
     }

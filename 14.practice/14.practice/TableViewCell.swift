@@ -23,6 +23,10 @@ class TableViewCell: UITableViewCell {
     
     var index:Int = 0
     
+    override class var requiresConstraintBasedLayout: Bool {
+        return true
+    }
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -43,6 +47,18 @@ class TableViewCell: UITableViewCell {
     
     @objc func clicked(resp: UIGestureRecognizer) {
         print("sdf", resp)
+    }
+    
+    static var fonter: UIFont = UIFont.systemFont(ofSize: 12)
+    
+    static func heightFor(for text: String, width: CGFloat) -> CGFloat {
+        
+        let s = NSAttributedString(
+            string: text,
+            attributes: [NSAttributedString.Key.font: fonter]
+        )
+        let rect = s.boundingRect(with: CGSize(width: width, height: .greatestFiniteMagnitude), options: .usesLineFragmentOrigin, context: nil)
+        return rect.size.height + 16
     }
 
 }
