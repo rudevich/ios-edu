@@ -11,8 +11,6 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    
-    
     var settingsViewController: UIViewController?
         
     lazy var imageView: UIImageView = {
@@ -25,26 +23,8 @@ class ViewController: UIViewController {
         return imageView
     }()
     
-    lazy var button: UIButton = {
-        let button = UIButton()
-        
-        button.setTitle("pick", for: .normal)
-        button.backgroundColor = .purple
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-        
-        return button
-    }()
     
-    lazy var imagePicker: UIImagePickerController = {
-        let imagePicker = UIImagePickerController()
-        
-        imagePicker.delegate = self
-        imagePicker.allowsEditing = true
-        imagePicker.sourceType = .photoLibrary
-        
-        return imagePicker
-    }()
+    
     
     lazy var slider: UISlider = {
         let slider = UISlider()
@@ -72,19 +52,27 @@ class ViewController: UIViewController {
         
         view.backgroundColor = .cyan
         view.addSubview(imageView)
-        view.addSubview(button)
         view.addSubview(slider)
         
         self.navigationItem.title = "Choose filter"
         
-        let settings = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(settingsTapped))
+        let settings = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(settingsTapped))
         navigationItem.rightBarButtonItems = [settings]
         setupConstraints()
         
-        print(CIFilter.filterNames(inCategory: kCICategoryBuiltIn))
+//        print(CIFilter.filterNames(inCategory: kCICategoryBuiltIn))
 //        "CIBlendWithRedMask", "CIBloom", "CIBokehBlur", "CIBoxBlur", "CIBumpDistortion", "CIBumpDistortionLinear"
         
         slider.transform = CGAffineTransform(rotationAngle: -CGFloat.pi / 2)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        guard let settingsController = self.settingsViewController as? SettingsViewControllerOut else { return }
+        imageView.image = doFilter(
+            settingsController.getImage(),
+            filterName: settingsController.getFilterName(),
+            intensity: settingsController.getIntensity()
+        )
     }
     
     private func setupConstraints() {
@@ -92,16 +80,8 @@ class ViewController: UIViewController {
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             imageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            imageView.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -10)
+            imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ]
-        
-        let buttonConstraints = [
-            button.widthAnchor.constraint(equalToConstant: 100),
-            button.heightAnchor.constraint(equalToConstant: 100),
-            button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
-        ]
-        
         
         let sliderConstraints = [
             slider.widthAnchor.constraint(equalToConstant: 100),
@@ -111,40 +91,39 @@ class ViewController: UIViewController {
         ]
         
         NSLayoutConstraint.activate(imageViewConstraints)
-        NSLayoutConstraint.activate(buttonConstraints)
         NSLayoutConstraint.activate(sliderConstraints)
     }
     
-    @objc private func buttonTapped() {
-        guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else { return }
-        
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
-    
-    func doFilter(_ image: UIImage) -> UIImage {
+    func doFilter(_ imageOptional: UIImage?, filterName: String, intensity: Float) -> UIImage? {
         //        "CIBlendWithRedMask", "CIBloom", "CIBokehBlur", "CIBoxBlur", "CIBumpDistortion", "CIBumpDistortionLinear"
-        if let filter = CIFilter(name: "CIBloom") {
-            let ciImage = CIImage(image: image)
-            filter.setValue(ciImage, forKey: kCIInputImageKey)
-            filter.setValue(55, forKey: kCIInputIntensityKey)
-            if let filteredImage = filter.outputImage {
-                if let cgImage = context.createCGImage(filteredImage, from: filteredImage.extent) {
-                    let returnImage = UIImage(cgImage: cgImage)
-                    return returnImage
+        guard let image = imageOptional else { return imageOptional}
+        
+        return DispatchQueue(label: "air-mainFilter").sync {
+            if let filter = CIFilter(name: "CIBloom") {
+                let ciImage = CIImage(image: image)
+                filter.setValue(ciImage, forKey: kCIInputImageKey)
+                filter.setValue(intensity, forKey: kCIInputIntensityKey)
+                if let filteredImage = filter.outputImage {
+                    if let cgImage = context.createCGImage(filteredImage, from: filteredImage.extent) {
+                        let returnImage = UIImage(cgImage: cgImage)
+                        return returnImage
+                    }
                 }
             }
+            return image
         }
-        return image
     }
+    
 }
 
-extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let image = info[.editedImage] as? UIImage
-        imageView.image = doFilter(image ?? UIImage())
-        
-        dismiss(animated: true, completion: nil)
+extension ViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
     }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        return UICollectionViewCell()
+    }
+    
+    
 }
-
