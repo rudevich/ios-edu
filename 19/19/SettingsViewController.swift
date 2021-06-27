@@ -7,13 +7,24 @@
 
 import UIKit
 
+protocol SettingsViewControllerOut {
+    var image: UIImage? { get set }
+    var filterName: String { get }
+    var filterIntensity: Float { get }
+    func getFilterName() -> String
+    func getIntensity() -> Float
+    func getImage() -> UIImage?
+}
+
 class SettingsViewController: UIViewController {
     
-    var settings = [String: String]()
+    public var image: UIImage?
+    public var filterName: String = ""
+    public var filterIntensity: Float = 0
     
     lazy var filterNames:[String] = {
         let names = CIFilter.filterNames(inCategory: kCICategoryBuiltIn)
-        settings["filter"] = names[0]
+        setFilterName(names[0])
         return names
     }()
     
@@ -49,6 +60,7 @@ class SettingsViewController: UIViewController {
         let button = UIButton()
         button.backgroundColor = .red
         button.setTitle("Pick an image", for: .normal)
+        button.addTarget(self, action: #selector(pickImageTapped), for: .touchUpInside)
         return button
     }()
     
@@ -60,8 +72,23 @@ class SettingsViewController: UIViewController {
         return select
     }()
     
+    lazy var imagePicker: UIImagePickerController = {
+        let imagePicker = UIImagePickerController()
+        
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+        
+        return imagePicker
+    }()
+    
+    @objc private func pickImageTapped() {
+        guard UIImagePickerController.isSourceTypeAvailable(.photoLibrary) else { return }
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
     @objc func sliderChanged() {
-        settings["intensity"] = "\(slider.value)"
+        setIntensity(slider.value)
     }
     
     override func viewDidLoad() {
@@ -69,8 +96,6 @@ class SettingsViewController: UIViewController {
         
         view.backgroundColor = .systemGray6
         navigationItem.title = "Settings"
-        
-        
         
         stackView.addArrangedSubview(sliderLabel)
         stackView.addArrangedSubview(slider)
@@ -93,6 +118,35 @@ class SettingsViewController: UIViewController {
         NSLayoutConstraint.activate(stackViewConstraints)
         
     }
+    
+}
+
+extension SettingsViewController: SettingsViewControllerOut {
+    
+    
+    func setFilterName(_ name: String) {
+        filterName = name
+    }
+    
+    func getFilterName() -> String {
+        return filterName
+    }
+    
+    func getImage() -> UIImage? {
+        return image
+    }
+    
+    func setImage(_ pickedImage: UIImage?) {
+        image = pickedImage
+    }
+    
+    func setIntensity(_ intensity: Float) {
+        filterIntensity = intensity
+    }
+    
+    func getIntensity() -> Float {
+        return filterIntensity
+    }
 }
 
 extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
@@ -109,7 +163,18 @@ extension SettingsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let localized = CIFilter.localizedName(forFilterName: filterNames[row])
-        settings["filter"] = filterNames[row]
+//        let localized = CIFilter.localizedName(forFilterName: filterNames[row])
+        setFilterName(filterNames[row])
+    }
+}
+
+extension SettingsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let image = info[.editedImage] as? UIImage
+        self.setImage(image)
+        
+        dismiss(animated: false, completion: nil)
+        navigationController?.popViewController(animated: true)
     }
 }

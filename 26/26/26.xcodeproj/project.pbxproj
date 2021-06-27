@@ -3,124 +3,111 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B5D7C70C2674033A000E38C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C70B2674033A000E38C1 /* AppDelegate.swift */; };
-		B5D7C7102674033A000E38C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C70F2674033A000E38C1 /* ViewController.swift */; };
-		B5D7C7152674033D000E38C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5D7C7142674033D000E38C1 /* Assets.xcassets */; };
-		B5D7C76C2674A77C000E38C1 /* ColorRandom.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5D7C76B2674A77C000E38C1 /* ColorRandom.xcframework */; };
-		B5D7C76D2674A77C000E38C1 /* ColorRandom.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B5D7C76B2674A77C000E38C1 /* ColorRandom.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B5D7C77E268393A8000E38C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C77D268393A8000E38C1 /* AppDelegate.swift */; };
+		B5D7C782268393A8000E38C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C781268393A8000E38C1 /* ViewController.swift */; };
+		B5D7C787268393AC000E38C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B5D7C786268393AC000E38C1 /* Assets.xcassets */; };
+		B5D7C79326839959000E38C1 /* Animals.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C79126839959000E38C1 /* Animals.xcdatamodeld */; };
+		B5D7C79D26839DED000E38C1 /* AnimalsStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C79C26839DED000E38C1 /* AnimalsStack.swift */; };
+		B5D7C7A42683AE17000E38C1 /* Human+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C7A22683AE17000E38C1 /* Human+CoreDataClass.swift */; };
+		B5D7C7A52683AE18000E38C1 /* Human+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C7A32683AE17000E38C1 /* Human+CoreDataProperties.swift */; };
+		B5D7C7A72683AE3E000E38C1 /* HumanStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C7A62683AE3E000E38C1 /* HumanStack.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		B5D7C76E2674A77D000E38C1 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				B5D7C76D2674A77C000E38C1 /* ColorRandom.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		B5D7C7082674033A000E38C1 /* 20.Carthage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 20.Carthage.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B5D7C70B2674033A000E38C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B5D7C70F2674033A000E38C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B5D7C7142674033D000E38C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B5D7C7192674033D000E38C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B5D7C76B2674A77C000E38C1 /* ColorRandom.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = ColorRandom.xcframework; path = ../ColorRandom/Carthage/Build/ColorRandom.xcframework; sourceTree = "<group>"; };
+		B5D7C77A268393A8000E38C1 /* 26.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 26.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B5D7C77D268393A8000E38C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B5D7C781268393A8000E38C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B5D7C786268393AC000E38C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B5D7C78B268393AC000E38C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B5D7C79226839959000E38C1 /* Animals.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Animals.xcdatamodel; sourceTree = "<group>"; };
+		B5D7C79C26839DED000E38C1 /* AnimalsStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsStack.swift; sourceTree = "<group>"; };
+		B5D7C7A22683AE17000E38C1 /* Human+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Human+CoreDataClass.swift"; sourceTree = "<group>"; };
+		B5D7C7A32683AE17000E38C1 /* Human+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Human+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		B5D7C7A62683AE3E000E38C1 /* HumanStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B5D7C7052674033A000E38C1 /* Frameworks */ = {
+		B5D7C777268393A8000E38C1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5D7C76C2674A77C000E38C1 /* ColorRandom.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B5D7C6FF2674033A000E38C1 = {
+		B5D7C771268393A8000E38C1 = {
 			isa = PBXGroup;
 			children = (
-				B5D7C70A2674033A000E38C1 /* 20.Carthage */,
-				B5D7C7092674033A000E38C1 /* Products */,
-				B5D7C71F26740629000E38C1 /* Frameworks */,
+				B5D7C77C268393A8000E38C1 /* 26 */,
+				B5D7C77B268393A8000E38C1 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		B5D7C7092674033A000E38C1 /* Products */ = {
+		B5D7C77B268393A8000E38C1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B5D7C7082674033A000E38C1 /* 20.Carthage.app */,
+				B5D7C77A268393A8000E38C1 /* 26.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B5D7C70A2674033A000E38C1 /* 20.Carthage */ = {
+		B5D7C77C268393A8000E38C1 /* 26 */ = {
 			isa = PBXGroup;
 			children = (
-				B5D7C70B2674033A000E38C1 /* AppDelegate.swift */,
-				B5D7C70F2674033A000E38C1 /* ViewController.swift */,
-				B5D7C7142674033D000E38C1 /* Assets.xcassets */,
-				B5D7C7192674033D000E38C1 /* Info.plist */,
+				B5D7C7A22683AE17000E38C1 /* Human+CoreDataClass.swift */,
+				B5D7C7A32683AE17000E38C1 /* Human+CoreDataProperties.swift */,
+				B5D7C77D268393A8000E38C1 /* AppDelegate.swift */,
+				B5D7C781268393A8000E38C1 /* ViewController.swift */,
+				B5D7C79C26839DED000E38C1 /* AnimalsStack.swift */,
+				B5D7C786268393AC000E38C1 /* Assets.xcassets */,
+				B5D7C78B268393AC000E38C1 /* Info.plist */,
+				B5D7C79126839959000E38C1 /* Animals.xcdatamodeld */,
+				B5D7C7A62683AE3E000E38C1 /* HumanStack.swift */,
 			);
-			path = 20.Carthage;
-			sourceTree = "<group>";
-		};
-		B5D7C71F26740629000E38C1 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B5D7C76B2674A77C000E38C1 /* ColorRandom.xcframework */,
-			);
-			name = Frameworks;
+			path = 26;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B5D7C7072674033A000E38C1 /* 20.Carthage */ = {
+		B5D7C779268393A8000E38C1 /* 26 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B5D7C71C2674033D000E38C1 /* Build configuration list for PBXNativeTarget "20.Carthage" */;
+			buildConfigurationList = B5D7C78E268393AC000E38C1 /* Build configuration list for PBXNativeTarget "26" */;
 			buildPhases = (
-				B5D7C7042674033A000E38C1 /* Sources */,
-				B5D7C7052674033A000E38C1 /* Frameworks */,
-				B5D7C7062674033A000E38C1 /* Resources */,
-				B5D7C76E2674A77D000E38C1 /* Embed Frameworks */,
+				B5D7C776268393A8000E38C1 /* Sources */,
+				B5D7C777268393A8000E38C1 /* Frameworks */,
+				B5D7C778268393A8000E38C1 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = 20.Carthage;
-			productName = 20.Carthage;
-			productReference = B5D7C7082674033A000E38C1 /* 20.Carthage.app */;
+			name = 26;
+			productName = 26;
+			productReference = B5D7C77A268393A8000E38C1 /* 26.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B5D7C7002674033A000E38C1 /* Project object */ = {
+		B5D7C772268393A8000E38C1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
-					B5D7C7072674033A000E38C1 = {
+					B5D7C779268393A8000E38C1 = {
 						CreatedOnToolsVersion = 12.5;
 					};
 				};
 			};
-			buildConfigurationList = B5D7C7032674033A000E38C1 /* Build configuration list for PBXProject "20.Carthage" */;
+			buildConfigurationList = B5D7C775268393A8000E38C1 /* Build configuration list for PBXProject "26" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -128,41 +115,46 @@
 				en,
 				Base,
 			);
-			mainGroup = B5D7C6FF2674033A000E38C1;
-			productRefGroup = B5D7C7092674033A000E38C1 /* Products */;
+			mainGroup = B5D7C771268393A8000E38C1;
+			productRefGroup = B5D7C77B268393A8000E38C1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B5D7C7072674033A000E38C1 /* 20.Carthage */,
+				B5D7C779268393A8000E38C1 /* 26 */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B5D7C7062674033A000E38C1 /* Resources */ = {
+		B5D7C778268393A8000E38C1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5D7C7152674033D000E38C1 /* Assets.xcassets in Resources */,
+				B5D7C787268393AC000E38C1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B5D7C7042674033A000E38C1 /* Sources */ = {
+		B5D7C776268393A8000E38C1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B5D7C7102674033A000E38C1 /* ViewController.swift in Sources */,
-				B5D7C70C2674033A000E38C1 /* AppDelegate.swift in Sources */,
+				B5D7C79326839959000E38C1 /* Animals.xcdatamodeld in Sources */,
+				B5D7C7A72683AE3E000E38C1 /* HumanStack.swift in Sources */,
+				B5D7C782268393A8000E38C1 /* ViewController.swift in Sources */,
+				B5D7C79D26839DED000E38C1 /* AnimalsStack.swift in Sources */,
+				B5D7C7A52683AE18000E38C1 /* Human+CoreDataProperties.swift in Sources */,
+				B5D7C77E268393A8000E38C1 /* AppDelegate.swift in Sources */,
+				B5D7C7A42683AE17000E38C1 /* Human+CoreDataClass.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		B5D7C71A2674033D000E38C1 /* Debug */ = {
+		B5D7C78C268393AC000E38C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -223,7 +215,7 @@
 			};
 			name = Debug;
 		};
-		B5D7C71B2674033D000E38C1 /* Release */ = {
+		B5D7C78D268393AC000E38C1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -278,38 +270,38 @@
 			};
 			name = Release;
 		};
-		B5D7C71D2674033D000E38C1 /* Debug */ = {
+		B5D7C78F268393AC000E38C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W4394692FZ;
-				INFOPLIST_FILE = 20.Carthage/Info.plist;
+				INFOPLIST_FILE = 26/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "sberbank.-0-Carthage";
+				PRODUCT_BUNDLE_IDENTIFIER = "sberbank.-6";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		B5D7C71E2674033D000E38C1 /* Release */ = {
+		B5D7C790268393AC000E38C1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = W4394692FZ;
-				INFOPLIST_FILE = 20.Carthage/Info.plist;
+				INFOPLIST_FILE = 26/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "sberbank.-0-Carthage";
+				PRODUCT_BUNDLE_IDENTIFIER = "sberbank.-6";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -319,25 +311,38 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B5D7C7032674033A000E38C1 /* Build configuration list for PBXProject "20.Carthage" */ = {
+		B5D7C775268393A8000E38C1 /* Build configuration list for PBXProject "26" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B5D7C71A2674033D000E38C1 /* Debug */,
-				B5D7C71B2674033D000E38C1 /* Release */,
+				B5D7C78C268393AC000E38C1 /* Debug */,
+				B5D7C78D268393AC000E38C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B5D7C71C2674033D000E38C1 /* Build configuration list for PBXNativeTarget "20.Carthage" */ = {
+		B5D7C78E268393AC000E38C1 /* Build configuration list for PBXNativeTarget "26" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B5D7C71D2674033D000E38C1 /* Debug */,
-				B5D7C71E2674033D000E38C1 /* Release */,
+				B5D7C78F268393AC000E38C1 /* Debug */,
+				B5D7C790268393AC000E38C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B5D7C79126839959000E38C1 /* Animals.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B5D7C79226839959000E38C1 /* Animals.xcdatamodel */,
+			);
+			currentVersion = B5D7C79226839959000E38C1 /* Animals.xcdatamodel */;
+			path = Animals.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
-	rootObject = B5D7C7002674033A000E38C1 /* Project object */;
+	rootObject = B5D7C772268393A8000E38C1 /* Project object */;
 }
