@@ -55,7 +55,7 @@ class NetworkService {
         
         urls.forEach { url in
             group.enter()
-            DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
+            DispatchQueue(label: "air-puzzle-\(url.absoluteString)", qos: .userInitiated, attributes: .concurrent).async { [unowned self] in
                 getData(from: url) { data, response, error in
                     guard let data = data, error == nil else { return }
                     print(url)
@@ -88,7 +88,7 @@ class NetworkService {
 	public func loadQuiz(completion: @escaping(Result<UIImage, Error>) -> ()) {
 		let keyURL = URL(string: "https://sberschool-c264c.firebaseio.com/enigma.json?avvrdd_token=AIzaSyDqbtGbRFETl2NjHgdxeOGj6UyS3bDiO-Y")
 		
-        DispatchQueue.global(qos: .userInitiated).async { [unowned self] in
+        DispatchQueue(label: "air-quiz-q", qos: .userInitiated, attributes: .concurrent).async { [unowned self] in
             if let url = keyURL {
                 let contents = try? String(contentsOf: url)
                 
