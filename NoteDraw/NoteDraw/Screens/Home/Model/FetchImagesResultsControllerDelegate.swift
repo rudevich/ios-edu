@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import UIKit
 
 extension FetchImagesResultsController: NSFetchedResultsControllerDelegate {
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
@@ -27,10 +28,14 @@ extension FetchImagesResultsController: NSFetchedResultsControllerDelegate {
             }
             break;
         case .move:
-            if let newIndexPath = newIndexPath, let indexPath = indexPath {
-                collectionView?.reloadData()
-//                collectionView?.reloadItems(at: [indexPath])
-//                collectionView?.reloadItems(at: [newIndexPath])
+            if let collectionView = collectionView {
+                UIView.transition(with: collectionView,
+                    duration: 0.35,
+                    options: .transitionCrossDissolve,
+                    animations: {
+                        collectionView.reloadData()
+                    }
+                )
             }
             break;
         case .delete:
