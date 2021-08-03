@@ -13,7 +13,7 @@ extension FetchImagesResultsController: NSFetchedResultsControllerDelegate {
     }
 
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        
+
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
@@ -28,8 +28,9 @@ extension FetchImagesResultsController: NSFetchedResultsControllerDelegate {
             break;
         case .move:
             if let newIndexPath = newIndexPath, let indexPath = indexPath {
-                collectionView?.reloadItems(at: [indexPath])
-                collectionView?.reloadItems(at: [newIndexPath])
+                collectionView?.reloadData()
+//                collectionView?.reloadItems(at: [indexPath])
+//                collectionView?.reloadItems(at: [newIndexPath])
             }
             break;
         case .delete:

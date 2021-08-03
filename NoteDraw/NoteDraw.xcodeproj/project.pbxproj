@@ -210,9 +210,9 @@
 		B59B89AE26B17B4D00EFE3E7 /* Draw */ = {
 			isa = PBXGroup;
 			children = (
-				B59B89D526B1861D00EFE3E7 /* Controller */,
 				B59B89D426B17C3300EFE3E7 /* View */,
 				B59B89D326B17C2700EFE3E7 /* Model */,
+				B59B89D526B1861D00EFE3E7 /* Controller */,
 			);
 			path = Draw;
 			sourceTree = "<group>";

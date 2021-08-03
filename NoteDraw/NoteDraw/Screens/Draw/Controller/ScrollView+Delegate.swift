@@ -19,8 +19,14 @@ extension DrawViewController: UIScrollViewDelegate {
 }
 
 // MARK: - ScrollView
+protocol ScrollViewAdjuster {
+    var canvas: CanvasView { get }
+    var scrollView: UIScrollView { get set }
+    func updateMinZoomScaleForSize(_ size: CGSize)
+    func centerScrollViewContent(_ scrollView: UIScrollView)
+}
 
-extension DrawViewController {
+extension DrawViewController: ScrollViewAdjuster {
     
     func updateMinZoomScaleForSize(_ size: CGSize) {
         let widthScale = size.width / canvas.bounds.width

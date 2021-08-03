@@ -22,8 +22,18 @@ final class CollectionFlowLayout: UICollectionViewFlowLayout {
     
     override func prepare() {
         guard let collectionView = collectionView else { fatalError() }
-        let verticalInsets = (collectionView.frame.height - collectionView.adjustedContentInset.top - collectionView.adjustedContentInset.bottom - itemSize.height) / 2
-        let horizontalInsets = (collectionView.frame.width - collectionView.adjustedContentInset.right - collectionView.adjustedContentInset.left - itemSize.width) / 2
+        let verticalInsets = (
+            collectionView.frame.height -
+            collectionView.adjustedContentInset.top -
+            collectionView.adjustedContentInset.bottom -
+            itemSize.height
+        ) / 2
+        let horizontalInsets = (
+            collectionView.frame.width -
+            collectionView.adjustedContentInset.right -
+            collectionView.adjustedContentInset.left -
+            itemSize.width
+        ) / 2
         sectionInset = UIEdgeInsets(top: verticalInsets, left: horizontalInsets, bottom: verticalInsets, right: horizontalInsets)
         super.prepare()
     }
@@ -33,6 +43,7 @@ final class CollectionFlowLayout: UICollectionViewFlowLayout {
         let rectAttributes = super.layoutAttributesForElements(in: rect)!.map { $0.copy() as! UICollectionViewLayoutAttributes }
         let visibleRect = CGRect(origin: collectionView.contentOffset, size: collectionView.frame.size)
         
+        // zoom cells when they centered
         for attributes in rectAttributes where attributes.frame.intersects(visibleRect) {
             let distance = visibleRect.midX - attributes.center.x
             let normalizedDistance = distance / activeDistance
@@ -66,6 +77,7 @@ final class CollectionFlowLayout: UICollectionViewFlowLayout {
     }
     
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
+        // invalidate to zoom a cell when it at center
         return true
     }
     

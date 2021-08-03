@@ -42,7 +42,6 @@ class DrawViewController: UIViewController {
         let canvas = CanvasView(frame: canvasSize)
         canvas.delegate = self.delegate
         canvas.image = image
-        
         canvas.setColor(dataSource.colors.first)
         canvas.setTool(dataSource.tools[dataSource.defaultTool])
         

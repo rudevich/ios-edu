@@ -99,7 +99,7 @@ class HomeViewController: UIViewController {
         NSLayoutConstraint.activate([
             imagesCollection.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             imagesCollection.trailingAnchor.constraint(equalTo:view.trailingAnchor),
-            imagesCollection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 4),
+            imagesCollection.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             imagesCollection.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -4)
         ])
     }

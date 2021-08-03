@@ -43,6 +43,14 @@ class CanvasView: UIView {
 }
 
 // set/gettable
+extension UIView {
+    func scale(by scale: CGFloat) {
+         self.contentScaleFactor = scale
+         for subview in self.subviews {
+             subview.scale(by: scale)
+         }
+     }
+}
 extension CanvasView {
     func setColor(_ color: UIColor?) {
         currentColor = color ?? .cyan
@@ -50,11 +58,21 @@ extension CanvasView {
     func setTool(_ tool: String?) {
         currentTool = tool ?? "freedraw"
     }
+    
     func asImage() -> UIImage {
-        let renderer = UIGraphicsImageRenderer(bounds: bounds)
-        return renderer.image { rendererContext in
-            layer.render(in: rendererContext.cgContext)
+//        let renderer = UIGraphicsImageRenderer(bounds: bounds)
+//        return renderer.image { rendererContext in
+//            layer.render(in: rendererContext.cgContext)
+//        }
+        let newScale = CGFloat(1);//UIScreen.main.scale
+        self.scale(by: newScale)
+        let format = UIGraphicsImageRendererFormat()
+        format.scale = newScale
+        let renderer = UIGraphicsImageRenderer(size: self.bounds.size, format: format)
+        let image = renderer.image { rendererContext in
+            self.layer.render(in: rendererContext.cgContext)
         }
+        return image
     }
 }
 
